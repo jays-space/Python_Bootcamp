@@ -1,7 +1,8 @@
 sml_pizza = 15
 md_pizza = 20
 lg_pizza = 25
-with_pepperoni = 2
+with_pepperoni_sml = 2
+with_pepperoni = 3
 with_extra_cheese = 1
 
 def get_pizza_base(pizza_size):
@@ -16,11 +17,14 @@ def get_pizza_base(pizza_size):
 
     return int(bill)
 
-def add_pepperoni(answer):
+def add_pepperoni(answer, pizza_size):
     bill = 0
 
     if answer == "Y":
-        bill = with_pepperoni
+        if pizza_size == "S":
+            bill = with_pepperoni_sml
+        else :
+            bill = with_pepperoni
 
     return int(bill)
 
@@ -39,11 +43,11 @@ def order_pizza():
     total_bill += get_pizza_base(size)
 
     pepperoni = input("Do you want pepperoni on your pizza? Y or N: ")
-    total_bill += add_pepperoni(pepperoni)
+    total_bill += add_pepperoni(pepperoni, size)
 
     extra_cheese = input("Do you want extra cheese? Y or N: ")
     total_bill += add_extra_cheese(extra_cheese)
 
-    print(f"Your total bill is ${total_bill}")
+    print(f"Your final bill is: ${total_bill}.")
 
 order_pizza()
