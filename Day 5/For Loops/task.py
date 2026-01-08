@@ -1,1 +1,1 @@
-fruits = ["Apple", "Peach", "Pear"]
+ fruits = ["Apple", "Peach", "Pear"]
